@@ -25,7 +25,7 @@ public class PetStoreTests {
     @Test
     @Order(1)
     public void PlaceAnOrderForAPet() throws UnirestException {
-        String requestUrl = baseURI + "/order/";
+        String requestUrl = String.format("%s/order/", baseURI);
 
         String postData = "{\n" +
                 "    \"id\": 5,\n" +
@@ -76,7 +76,7 @@ public class PetStoreTests {
     @Test
     @Order(2)
     public void FindPurchaseOrderByID() throws UnirestException {
-        String requestUrl = baseURI + "/order/5/";
+        String requestUrl = String.format("%s/order/5/", baseURI);
 
         Unirest.setTimeouts(0, 0);
         HttpResponse<JsonNode> response = Unirest.get(requestUrl)
@@ -115,7 +115,8 @@ public class PetStoreTests {
     @Test
     @Order(3)
     public void DeletePurchaseOrderByID() throws UnirestException {
-        String requestUrl = baseURI + "/order/5/";
+        String requestUrl = String.format("%s/order/5/", baseURI);
+
 
         Unirest.setTimeouts(0, 0);
         HttpResponse<JsonNode> response = Unirest.delete(requestUrl)
@@ -151,7 +152,8 @@ public class PetStoreTests {
     @Test
     @Order(4)
     public void ReturnsPetInventoriesByStatus() throws UnirestException {
-        String requestUrl = baseURI + "/inventory";
+        String requestUrl = String.format("%s/inventory/", baseURI);
+
 
         Unirest.setTimeouts(0, 0);
         HttpResponse<JsonNode> response = Unirest.get(requestUrl)
