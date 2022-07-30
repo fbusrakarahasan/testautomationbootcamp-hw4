@@ -5,6 +5,18 @@
  
 https://petstore.swagger.io/#/store/ store path endpointlerin API testinin yazılması.
 
+```java
+HttpHeaders headers;
+RestTemplate restTemplate;
+
+public PetStoreTests() {
+  baseURI = "https://petstore.swagger.io/v2/store";
+  headers = new HttpHeaders();
+  headers.setContentType(MediaType.APPLICATION_JSON);
+  restTemplate = new RestTemplate();
+}
+``` 
+    
 ## ✅ Place an order for a pet 
 https://petstore.swagger.io/v2/store/order
 
